@@ -2,6 +2,7 @@ const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
+ 
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -13,7 +14,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
+  successRedirect: "/home",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -59,5 +60,30 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+
+
+module.exports = router;
+
+
+///////////////Google Login
+router.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email"
+    ]
+  })
+);
+
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/home",   
+    failureRedirect: "/"        // here you would redirect to the login page using traditional login approach
+  })
+);
+
 
 module.exports = router;

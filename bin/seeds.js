@@ -255,13 +255,4 @@ User.deleteMany()
     throw err;
   }); 
 
-// let users = [
-//   {
-//     username: "alice",
-//     password: bcrypt.hashSync("alice", bcrypt.genSaltSync(bcryptSalt))
-//   },
-//   {
-//     username: "bob",
-//     password: bcrypt.hashSync("bob", bcrypt.genSaltSync(bcryptSalt))
-//   }
-// ];
+
