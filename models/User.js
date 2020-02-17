@@ -1,15 +1,19 @@
-const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  username: String,
-  password: String
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
-  }
-});
+const userSchema = new Schema(
+  {
+    username: String,
+    age: Number,
+    genre: { type: String, enum: ["female", "male", "other"] },
+    avatarUrl: {
+      type: String,
+      default: "images/default-avatar.png"
+    },
+    races: [{ type: Schema.Types.ObjectId, ref: "Race" }]
+  },
+  { timestamps: true }
+);
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
