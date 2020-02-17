@@ -15,16 +15,11 @@ const raceSchema = new Schema({
   },
   length: Number,
   startPoint: {type: { type: String},coordinates: [Number]},
-  // endPoint: {type: {type: String},coordinates: [Number]},
-  imgUrl: String,
-  //   stars: 4.6,
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
-  }
-});
+  imgUrl: String
+},
+{ timestamps: true }
+);
 
 raceSchema.index({startPoint: '2dsphere'})
-
-const Race = mongoose.model('User', userSchema);
+const Race = mongoose.model('Race', raceSchema);
 module.exports = Race;
