@@ -16,6 +16,7 @@ router.get('/map', (req, res, next) => {
   Race.find()
     .then(allRaces => {
       res.render('races/allraces-map')
+      // console.log(allRaces);
     })
     .catch(err => console.log(err))
 });
@@ -29,12 +30,34 @@ router.get('/api', (req, res, next) => {
 });
 
 
+let oneRace
+
 //Show the Race details
 router.get('/:id', (req, res, next) => {
-  Race.findById(req.params.id)
-    .then(race => res.render('races/race-detail'))
+  oneRace = req.params.id
+  // console.log(oneRace);
+  Race.findById(oneRace)
+    .then(race => {
+res.render('races/race-detail', race)
+// console.log(race);
+    })
     //res.send(race)
     .catch(err => next())
+});
+
+router.get('/api/one', (req, res, next) => {
+  
+ 
+  Race.findById(oneRace)
+    .then(race => {
+
+      res.json(race)
+      let {
+        raceData
+      } = req.body
+      console.log(raceData);
+    })
+    .catch(err => console.log(err))
 });
 //GET To create a new race - Shows form ???
 router.get('/new', (req, res, next) => {
