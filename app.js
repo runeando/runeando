@@ -87,13 +87,6 @@ app.use('/auth', authRoutes);
 
 /////////////////////////////////////// Login Auth
 mongoose.Promise = Promise;
-mongoose
-  .connect('mongodb://localhost/proyectoback', {useMongoClient: true})
-  .then(() => {
-    console.log('Connected to Mongo!')
-  }).catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
 
 // Routes
 const router = require("./routes/auth");

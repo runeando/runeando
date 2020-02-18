@@ -10,9 +10,9 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
-  //res.json({"test":"test"})
-  res.render("auth/login", { "message": req.flash("error") });
-  //res.render('auth/login');
+  res.render("auth/login", {
+    "message": req.flash("error")
+  });
 });
 
 router.post("/login", passport.authenticate("local", {
@@ -30,13 +30,19 @@ router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/signup", {
+      message: "Indicate username and password"
+    });
     return;
   }
 
-  User.findOne({ username }, "username", (err, user) => {
+  User.findOne({
+    username
+  }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", {
+        message: "The username already exists"
+      });
       return;
     }
 
@@ -49,12 +55,14 @@ router.post("/signup", (req, res, next) => {
     });
 
     newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
+      .then(() => {
+        res.redirect("/");
+      })
+      .catch(err => {
+        res.render("auth/signup", {
+          message: "Something went wrong"
+        });
+      })
   });
 });
 
@@ -64,8 +72,6 @@ router.get("/logout", (req, res) => {
 });
 
 
-
-module.exports = router;
 
 
 ///////////////Google Login

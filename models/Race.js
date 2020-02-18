@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const raceSchema = new Schema({
-  _id: String,
+  // _id: String,
   name: String,
   description: String,
   area: {

@@ -14,6 +14,7 @@ const userSchema = new Schema(
       default: "images/default-avatar.png"
     },
     races: [{ type: Schema.Types.ObjectId, ref: "Race" }]
+    // racesSaved: [{ type: Schema.Types.ObjectId, ref: "Race" }]
   },
   { timestamps: true }
 );
