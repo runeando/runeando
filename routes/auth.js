@@ -10,7 +10,9 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
+  //res.json({"test":"test"})
   res.render("auth/login", { "message": req.flash("error") });
+  //res.render('auth/login');
 });
 
 router.post("/login", passport.authenticate("local", {
