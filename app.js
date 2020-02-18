@@ -84,6 +84,12 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
+//Added
+const races = require('./routes/races.routes');
+app.use('/races', races);
+
+const users = require('./routes/users.routes');
+app.use('/users', users);
 
 /////////////////////////////////////// Login Auth
 mongoose.Promise = Promise;

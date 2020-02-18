@@ -1,4 +1,17 @@
 
-<h1>Welcome to our Project {{username}}</h1>
+<h1>Home {{username}}</h1>
 <div id="bg"> </div>
-<img src="../images/girls.jpg" alt="Runner Girls">
+
+<img src="../images/girls.jpg" alt="Runner Girls" width="500px">
+<a href="../races/map">Vista de Mapa</a>
+<a href="../users">Vista de Users</a>
+<a href="../races">Vista de Carreras</a>
+
+
+{{!-- 
+const races = require('./routes/races.routes');     //races es routes/races.routes
+app.use('/races', races);
+
+const users = require('./routes/users.routes');
+app.use('/users', users);
+ --}}
