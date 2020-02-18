@@ -14,10 +14,20 @@ router.get('/', (req, res, next) => {
 //route for races view - googlemaps view
 router.get('/map', (req, res, next) => {
   Race.find()
-    .then(allRaces => res.render('races/allraces-map'))
-    //res.send(allRaces)
+    .then(allRaces => {
+      res.render('races/allraces-map')
+    })
     .catch(err => console.log(err))
 });
+
+router.get('/api', (req, res, next) => {
+  Race.find()
+    .then(allRaces => {
+      res.json(allRaces)
+    })
+    .catch(err => console.log(err))
+});
+
 
 //Show the Race details
 router.get('/:id', (req, res, next) => {
