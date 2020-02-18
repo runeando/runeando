@@ -6,21 +6,24 @@ const Race = require("../models/Race");
 //route for races view - card view
 router.get('/', (req, res, next) => {
   Race.find()
-    .then(allRaces => res.send(allRaces))
+    .then(allRaces => res.render('races/allraces-view'))
+    // res.send(allRaces)
     .catch(err => console.log(err))
 });
 
 //route for races view - googlemaps view
 router.get('/map', (req, res, next) => {
   Race.find()
-    .then(allRaces => res.send(allRaces))
+    .then(allRaces => res.render('races/allraces-map'))
+    //res.send(allRaces)
     .catch(err => console.log(err))
 });
 
 //Show the Race details
 router.get('/:id', (req, res, next) => {
   Race.findById(req.params.id)
-    .then(race => res.send(race))
+    .then(race => res.render('races/race-detail'))
+    //res.send(race)
     .catch(err => next())
 });
 //GET To create a new race - Shows form ???
@@ -58,7 +61,8 @@ router.post('/new', (req, res, next) => {
 
 router.get('/edit/:id', (req, res, next) => {
   Race.findById(req.params.id)
-    .then(race => res.json(race))
+    .then(race => res.render('races/edit-race'))
+    //res.json(race)
     .catch(err => console.log(err))
 });
 
