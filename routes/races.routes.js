@@ -13,13 +13,7 @@ router.get('/', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .catch(err => console.log(err))
 });
 
-/*
-const races = require('./routes/races.routes');     //races es routes/races.routes
-app.use('/races', races);
 
-const users = require('./routes/users.routes');
-app.use('/users', users);
-*/
 
 //route for races view - googlemaps view
 router.get('/map', ensureLogin.ensureLoggedIn(), (req, res, next) => {
@@ -36,6 +30,7 @@ router.get('/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     //res.send(race)
     .catch(err => next())
 });
+
 //GET To create a new race - Shows form ???
 router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   res.render('races/create-race')
@@ -98,6 +93,14 @@ router.get('/map', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .catch(err => console.log(err))
 });
 
+/* Show races from one user */
 
+/*
+const races = require('./routes/races.routes');     //races es routes/races.routes
+app.use('/races', races);
+
+const users = require('./routes/users.routes');
+app.use('/users', users);
+*/
 
 module.exports = router

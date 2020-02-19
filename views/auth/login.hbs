@@ -3,12 +3,12 @@
 
 <form action="/auth/login" method="POST" id="form-container">
   <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Your username">
+  <input id="username" type="text" name="username" placeholder="Your username" value="anna">
 
   <br><br>
 
   <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
+  <input id="password" type="password" name="password" placeholder="Your password" value="anna">
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>
