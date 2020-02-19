@@ -34,10 +34,8 @@ router.get('/api', (req, res, next) => {
 });
 
 
-let oneRace;
-
+let oneRace
 //Show the Race details
-
 router.get('/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   oneRace = req.params.id
   // console.log(oneRace);
@@ -47,11 +45,9 @@ router.get('/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 
-
 router.get('/api/one', (req, res, next) => {
   Race.findById(oneRace)
     .then(race => {
-
       res.json(race)
       let {
         raceData
@@ -66,53 +62,62 @@ router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   res.render('races/create-race')
 });
 
-//POST To create a new race
-router.post('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  const {
-    name,
-    description,
-    area,
-    difficulty,
-    length,
-    startPoint,
-    imgUrl
-  } = req.body
-
-  Race.create({
-      name,
-      description,
-      area,
-      difficulty,
-      length,
-      startPoint,
-      imgUrl
-    })
-    .then(newRace => res.json(newRace)) //acceder al id de la race creada, y push al array. traer al array del req.user
-
-
-    .catch(err => console.log(err))
-});
 
 
 router.get('/edit/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.findById(req.params.id)
-    .then(race => res.render('races/edit-race'))
-    //res.json(race)
+    //.then(race => res.json("races/edit-race"))
+    .then(race => res.render('races/edit-race', race))
+   
     .catch(err => console.log(err))
 });
 
 
-router.post('/edit/:id', ensureLogin.ensureLoggedIn(), ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  Race.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    })
-    .then(race => res.json(race))
-    .catch(err => console.log(err))
-});
+
+// // for the classic way (update)
+// router.post("/updateIngredient", (req, res, next) => {
+//   Ingredients.findByIdAndUpdate(req.body._id, req.body).then(() => { 
+//     res.redirect("/");
+//   });
+// });
+
+// // for the modern way (update)
+// router.put("/updateIngredient", (req, res, next) => {
+//   Ingredients.findByIdAndUpdate(req.body._id, req.body).then(() => {
+//     res.json({ updated: true });
+//   });
+// });
+
+router.post('/edit', (req, res, next) => {
+  console.log("entra bien")
+  console.log({...req.body});
+ const{ name,description,area,difficulty,length,imgUrl} = req.body;
+  let raceToUpdate = {
+        name,
+        description,
+        area,
+        difficulty,
+        length,
+        imgUrl,
+        startPoint: {
+          type: "Point",
+          coordinates: [req.body.latitude, req.body.longitude]
+        }
+  }
+
+  Race.findByIdAndUpdate(req.params.id, raceToUpdate)
+  .then(() => console.log(req.params.id))
+  .then(() => res.redirect('/races/myraces'))
+  .catch(err => console.log(err))
+})
+    
+    // .then(() => res.redirect('/races/myraces'))
+    // .then(race => res.json(race))
+    
 
 router.post('/delete/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.findByIdAndDelete(req.params.id)
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect('/races/myraces'))
     .catch(err => console.log(err))
 })
 
@@ -124,6 +129,17 @@ router.get('/map', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 /* Show races from one user */
+router.get('/myraces', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  User
+  .findById(req.user._id)
+  .populate('races')
+  .then(userRaces => {
+    //res.json(userRaces); //Si quisiera id .id
+    res.render('races/myraces', userRaces)
+  })
+})
+
+//Crear un get con el formulario para GET
 
 /*
 const races = require('./routes/races.routes');     //races es routes/races.routes

@@ -30,4 +30,10 @@ h2 {
 #oneRaceMap {
   height: 70vh; }
 
+.card-img-top {
+  height: 145px; }
+
+#barranavegacion {
+  z-index: 10000; }
+
 /*# sourceMappingURL=style.css.map */
