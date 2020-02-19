@@ -67,13 +67,12 @@ function racesInMap(races) {
       lat: race.startPoint.coordinates[0],
       lng: race.startPoint.coordinates[1]
     }
-     console.log(center);
+    console.log(center);
     new google.maps.Marker({
       position: center,
       map: myMap,
       title: race.name,
     })
-    
+
   })
 }
-

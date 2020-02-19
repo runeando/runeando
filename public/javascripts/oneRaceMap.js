@@ -9,7 +9,7 @@ function initOneRaceMap() {
 
   let mapOptions = {
     center: initialCoords, ///coords from req.params?
-    zoom: 13
+    zoom: 12
   }
   oneMap = new google.maps.Map(document.querySelector('#oneRaceMap'), mapOptions)
   getOneRace()
@@ -22,7 +22,7 @@ function initOneRaceMap() {
       };
 
       // Center map with user location
-      // myMap.setCenter(user_location);
+      oneMap.setCenter(user_location);
 
       let imageRunner = "../images/marker2.png"
 
