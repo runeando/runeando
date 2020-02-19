@@ -125,7 +125,13 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
 router.get('/edit/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.findById(req.params.id)
     //.then(race => res.json("races/edit-race"))
-    .then(race => res.render('races/edit-race', race))
+    .lean()
+    .then(race => {
+      race.lat = race.startPoint.coordinates[0]
+      race.lng = race.startPoint.coordinates[1]
+
+      res.render('races/edit-race', race)
+    })
 
     .catch(err => console.log(err))
 });
@@ -142,7 +148,8 @@ router.post('/edit/:id', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUr
     length,
   } = req.body;
 
-    const imgUrl = req.file.url;
+   const imgUrl = req.file.url ? req.file.url : req.body.previousImgUrl;
+
   let raceToUpdate = {
     name,
     description,

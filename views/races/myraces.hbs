@@ -10,11 +10,8 @@
       <h5 class="card-title">{{name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{area}} | {{difficulty}} | {{length}}m</h6>
       <p class="card-text">{{description}}</p>
-      ​
       {{!-- <a href="/races/{{_id}}" class="btn btn-primary">Edit Race</a> --}}
       <a href="/races/edit/{{_id}}" class="btn btn-primary">Edit Race</a>
-
-      ​
       <form action="/races/delete/{{_id}}" method="POST">
         <button class="btn btn-primary">Delete Race</button>
       </form>
