@@ -4,24 +4,10 @@ body {
 a {
   color: #006B91; }
 
-.page-holder {
-  min-height: 100vh; }
+#racesMap {
+  height: 70vh; }
 
-.bg-cover {
-  background-size: cover !important; }
-
-#card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  align-content: center; }
-
-h2 {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 30px;
-  color: #017BFF; }
+#oneRaceMap {
+  height: 70vh; }
 
 /*# sourceMappingURL=style.css.map */

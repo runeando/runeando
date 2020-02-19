@@ -1,1 +1,25 @@
 <h1>All races view en google maps</h1>
+<div class="info">
+  <h3>List of all races</h3>
+
+<div class="info">
+  <a href="/races/new">Create a new race</a>
+  {{!-- <ul>
+    {{#each races}}
+    <li>
+      <a href="/races/{{this._id}}">{{this.name}}</a> | <a href="/races/{{this._id}}/delete">Delete</a>
+    </li>
+    {{/each }}
+  </ul> --}}
+  <div id="racesMap"></div>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/main.js"></script>
+<script src="/javascripts/script.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVldv6to51T5LpyubZPhnS-qOTsKu__CY&callback=initMap"></script>
+
+
+
+

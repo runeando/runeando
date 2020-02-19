@@ -1,1 +1,35 @@
-<h1>Formulario para crear</h1>
+<h1>Add Race</h1>
+
+<form method="POST" action="/new">
+  <input type="text" name="name" placeholder="name">
+  <input type="text" name="description" placeholder="description">
+  <input type="text" name="area" placeholder="area">
+
+  <select name="difficulty" class="form-control" id="select-difficulty">
+    <label for="area">Difficulty</label>
+    <option>Seleccionar</option>
+    <option value="Easy">Easy</option>
+    <option value="Medium">Medium</option>
+    <option value="Hard">Hard</option>
+  </select>
+
+    <select name="area" class="form-control" id="select-area">
+      <label for="area">Area</label>
+      
+      <option>Seleccionar</option>
+      <option value="Easy">Easy</option>
+      <option value="Medium">Medium</option>
+      <option value="Hard">Hard</option>
+    </select>
+{{!-- add select for area and difficulty --}}
+{{!-- add drag marker coordinates --}}
+  <label>Address</label>
+  <input type="text" name="latitude" placeholder="latitude">
+  <input type="text" name="longitude" placeholder="longitude">
+
+  {{!-- upload img --}}
+
+  <input type="submit" name="">
+
+</form>
+
