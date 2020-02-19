@@ -2,14 +2,22 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const Race = require("../models/Race");
-const ensureLogin = require("connect-ensure-login"); 
+const ensureLogin = require("connect-ensure-login");
+
+const multer = require('multer')
+const upload = multer({
+  dest: '../public/uploads'
+})
+const uploadCloud = require('../config/cloudinary.js')
 
 //route for races view - card view
 router.get('/', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.find()
     .then(allRaces => {
-     res.render('races/allraces-view', {allRaces})
-     })
+      res.render('races/allraces-view', {
+        allRaces
+      })
+    })
     .catch(err => console.log(err))
 });
 
@@ -20,6 +28,8 @@ router.get('/map', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.find()
     .then(allRaces => {
       res.render('races/allraces-map')
+
+      // res.json(allRaces)
       // console.log(allRaces);
     })
     .catch(err => console.log(err))
@@ -42,7 +52,9 @@ router.get('/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   oneRace = req.params.id
   // console.log(oneRace);
   Race.findById(oneRace)
-    .then(race => { res.render('races/race-detail', race) })
+    .then(race => {
+      res.render('races/race-detail', race)
+    })
     .catch(err => next())
 });
 
@@ -67,53 +79,103 @@ router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 //POST To create a new race
-router.post('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), (req, res, next) => {
+  console.log(req.user._id)
   const {
     name,
     description,
     area,
     difficulty,
     length,
-    startPoint,
-    imgUrl
+
   } = req.body
 
-  Race.create({
-      name,
-      description,
-      area,
-      difficulty,
-      length,
-      startPoint,
-      imgUrl
-    })
-    .then(newRace => res.json(newRace)) //acceder al id de la race creada, y push al array. traer al array del req.user
+  const imgUrl = req.file.url;
 
+  const newRace = {
+    name,
+    description,
+    area,
+    difficulty,
+    length,
+    imgUrl,
+    startPoint: {
+      type: "Point",
+      coordinates: [req.body.latitude, req.body.longitude]
+    }
 
-    .catch(err => console.log(err))
-});
+  }
+  Race.create(newRace)
+    .then(raceCreated =>
 
+      User.findOneAndUpdate(req.user.id, {
+        $push: {
+          races: raceCreated._id
+        }
+      })
+      .then(res.redirect('/races'))
+      //acceder al id de la race creada, y push al array. traer al array del req.user
+      .catch(err => console.log(err))
+
+      // .then(userUpdated => res.json(userUpdated))
+    );
+
+})
 
 router.get('/edit/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.findById(req.params.id)
-    .then(race => res.render('races/edit-race'))
-    //res.json(race)
+    //.then(race => res.json("races/edit-race"))
+    .then(race => res.render('races/edit-race', race))
+
     .catch(err => console.log(err))
 });
 
+router.post('/edit/:id', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), (req, res, next) => {
+  console.log("entra bien")
+  console.log(req.body)
 
-router.post('/edit/:id', ensureLogin.ensureLoggedIn(), ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  Race.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    })
-    .then(race => res.json(race))
+  const {
+    name,
+    description,
+    area,
+    difficulty,
+    length,
+  } = req.body;
+
+    const imgUrl = req.file.url;
+  let raceToUpdate = {
+    name,
+    description,
+    area,
+    difficulty,
+    length,
+    imgUrl,
+    startPoint: {
+      type: "Point",
+      coordinates: [req.body.latitude, req.body.longitude]
+    }
+  }
+  Race.findByIdAndUpdate(req.params.id, raceToUpdate)
+    .then(() => console.log(req.params.id))
+    .then(() => res.redirect('/races/myraces'))
     .catch(err => console.log(err))
-});
+})
 
 router.post('/delete/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Race.findByIdAndDelete(req.params.id)
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect('/races/myraces'))
     .catch(err => console.log(err))
+})
+
+/* Show races from one user */
+router.get('/myraces', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  User
+    .findById(req.user._id)
+    .populate('races')
+    .then(userRaces => {
+      //res.json(userRaces);
+      res.render('races/myraces', userRaces)
+    })
 })
 
 router.get('/map', ensureLogin.ensureLoggedIn(), (req, res, next) => {

@@ -1,35 +1,34 @@
-<h1>Add Race</h1>
+<h2>Add Race</h2>
+<a href="../races">Back to races</a>
 
-<form method="POST" action="/new">
-  <input type="text" name="name" placeholder="name">
-  <input type="text" name="description" placeholder="description">
-  <input type="text" name="area" placeholder="area">
-
-  <select name="difficulty" class="form-control" id="select-difficulty">
-    <label for="area">Difficulty</label>
-    <option>Seleccionar</option>
-    <option value="Easy">Easy</option>
-    <option value="Medium">Medium</option>
-    <option value="Hard">Hard</option>
-  </select>
-
-    <select name="area" class="form-control" id="select-area">
-      <label for="area">Area</label>
-      
-      <option>Seleccionar</option>
+<form method="POST" action="/races/new" enctype="multipart/form-data">
+  <input type="text" name="name" placeholder="Enter race name" value="Race14">
+  <input type="text" name="description" placeholder="Enter race description" value="pretty race">
+  <input type="text" name="length" placeholder="Enter meters" value="1000"> meters
+  <div class="difficulty">
+    <select name="difficulty" class="form-control" id="select-difficulty">
       <option value="Easy">Easy</option>
       <option value="Medium">Medium</option>
-      <option value="Hard">Hard</option>
+      <option value="Hard">Hardcore</option>
     </select>
-{{!-- add select for area and difficulty --}}
-{{!-- add drag marker coordinates --}}
-  <label>Address</label>
-  <input type="text" name="latitude" placeholder="latitude">
-  <input type="text" name="longitude" placeholder="longitude">
+  </div>
 
-  {{!-- upload img --}}
+  <div class="area">
+    <select name="area" class="form-control" id="select-area">
+      {{!-- <option>Select Area <Area></Area></option> --}}
+      <option value="MadridRio">Madrid Rio</option>
+      <option value="CasaDeCampo">Casa de Campo</option>
+    </select>
+  </div>
+  {{!-- add drag marker coordinates --}}
+  <label>Coordinates</label>
+  <input type="text" name="latitude" placeholder="latitude" value="40.393507">
+  <input type="text" name="longitude" placeholder="longitude" value="-3.7017243">
 
+<section>
+  <h3>Upload Race Photo</h3>
+    <input type="file" name="imgUrl">
+</section>
   <input type="submit" name="">
 
 </form>
-

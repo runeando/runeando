@@ -16,7 +16,7 @@ router.get("/login", (req, res, next) => {
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/home",
+  successRedirect: "/races",
   failureRedirect: "/auth/login",
   failureFlash: true,
   passReqToCallback: true
@@ -88,7 +88,7 @@ router.get(
 router.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/home",   
+    successRedirect: "/races",   
     failureRedirect: "/"        // here you would redirect to the login page using traditional login approach
   })
 );
