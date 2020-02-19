@@ -1,43 +1,18 @@
-{{!-- Nav Bar Responsive --}}
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Runeando</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto"> 
-        <li class="nav-item active">
-          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="races/myraces">My Races<span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="races/map">Map View <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/auth/logout">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
 
 <h2>All races view</h2>
 
 
 <div id="card-container">
-{{#each allRaces}}
-<div class="card" style="width: 18rem;">
-  <img src="{{imgUrl}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{name}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{area}} | {{difficulty}} | {{length}}m</h6>
-    <p class="card-text">{{description}}</p>
-    <a href="/races/{{_id}}" class="btn btn-primary">See more</a>
+  {{#each allRaces}}
+  <div class="card" style="width: 18rem;">
+    <img src="{{imgUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{area}} | {{difficulty}} | {{length}}m</h6>
+      <p class="card-text">{{description}}</p>
+      <a href="/races/{{_id}}" class="btn btn-primary">See more</a>
+    </div>
   </div>
+  {{/each}}
 </div>
-{{/each}}
-</div>
+

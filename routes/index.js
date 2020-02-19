@@ -5,13 +5,10 @@ const ensureLogin = require("connect-ensure-login");  //This
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {
+  layout: false
+  });
 });
-
-router.get('/home', ensureLogin.ensureLoggedIn(), (req, res, next) => {  //This
-  res.render('home');
-});
-
 
 
 module.exports = router;

@@ -1,7 +1,6 @@
 <h1>Formulario para editar Race</h1>
-
-<form method="POST" action="/races/edit" enctype="multipart/form-data">
- <input type="hidden" value="{{id}}" name="id">
+<form method="POST" action="/races/edit/{{_id}}" enctype="multipart/form-data">
+  {{!-- <input type="hidden" value="{{id}}" name="id"> --}}
   <input type="text" name="name" placeholder="Enter race name" value="{{name}}">
   <input type="text" name="description" placeholder="Enter race description" value="{{description}}" size="50">
   <input type="text" name="length" placeholder="Enter meters" value="{{length}}" size="10"> meters
@@ -21,14 +20,13 @@
   </div>
   {{!-- add drag marker coordinates --}}
   <label>Coordinates</label>
-  <input type="text" name="latitude" placeholder="latitude" value="40.393507">
-  <input type="text" name="longitude" placeholder="longitude" value="-3.7017243">
-<section>
-  <img src="{{imgUrl}}">
-  <h3>Change Race Photo</h3>
+  <input type="text" name="latitude" placeholder="latitude" value="{{lat}}">
+  <input type="text" name="longitude" placeholder="longitude" value="{{lng}}">
+  <section>
+    <img src="{{imgUrl}}">
+    <h3>Change Race Photo</h3>
     <input type="file" name="imgUrl">
-</section>
+    <input type="hidden" name="previousImgUrl" value={{imgUrl}}>
+  </section>
   <input type="submit" name="">
 </form>
-
-
