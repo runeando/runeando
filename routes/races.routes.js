@@ -144,7 +144,8 @@ router.post('/edit/:id', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUr
     length,
   } = req.body;
 
-   const imgUrl = req.file.url ? req.file.url : req.body.previousImgUrl;
+  const imgUrl = req.file ? req.file.url : req.body.previousImgUrl;
+  console.log(imgUrl)
 
   let raceToUpdate = {
     name,
