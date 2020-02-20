@@ -17,8 +17,11 @@ a {
   padding-bottom: 18rem;
 }
 
-.car{
-  margin: 0 1rem;
+.card{
+  margin: 0 1rem 2rem;
+  form {
+    display: inline;
+  }
 }
 
 .bg-cover {
@@ -43,12 +46,8 @@ h2{
 }
 
 #racesMap {
-<<<<<<< HEAD
-  height: 70vh;
-  width: 70vh;
-=======
-  height: 100vh; //era 70
->>>>>>> fer
+  height: 100vh;
+  width: 100vh;
 }
 
 #oneRaceMap {

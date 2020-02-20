@@ -11,8 +11,10 @@ a {
   justify-content: center;
   padding-bottom: 18rem; }
 
-.car {
-  margin: 0 1rem; }
+.card {
+  margin: 0 1rem 2rem; }
+  .card form {
+    display: inline; }
 
 .bg-cover {
   background-size: cover !important; }
@@ -32,12 +34,8 @@ h2 {
   color: #017BFF; }
 
 #racesMap {
-<<<<<<< HEAD
-  height: 70vh;
-  width: 70vh; }
-=======
-  height: 100vh; }
->>>>>>> fer
+  height: 100vh;
+  width: 100vh; }
 
 #oneRaceMap {
   height: 100vh;
