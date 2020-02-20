@@ -5,9 +5,7 @@ const Race = require("../models/Race");
 const ensureLogin = require("connect-ensure-login");
 
 const multer = require('multer')
-const upload = multer({
-  dest: '../public/uploads'
-})
+
 const uploadCloud = require('../config/cloudinary.js')
 
 //route for races view - card view
