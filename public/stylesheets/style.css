@@ -25,7 +25,8 @@ h2 {
   color: #017BFF; }
 
 #racesMap {
-  height: 70vh; }
+  height: 70vh;
+  width: 70vh; }
 
 #oneRaceMap {
   height: 100vh;

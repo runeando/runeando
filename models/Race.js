@@ -16,10 +16,20 @@ const raceSchema = new Schema({
   length: Number,
   startPoint: {
     type: {
-      type: String
+      type: String,
+      enum: ['Point'],
+      default: 'Point',
     },
     coordinates: [Number]
   },
+  route: [{
+    type: {
+      type: String,
+      enum: ['Point'],
+      default: 'Point',
+    },
+    coordinates: [Number]
+  }],
   imgUrl: String
 }, {
   timestamps: true

@@ -9,10 +9,15 @@ function initOneRaceMap() {
 
   let mapOptions = {
     center: initialCoords, ///coords from req.params?
-    zoom: 12
+    zoom: 12,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false
+
   }
   oneMap = new google.maps.Map(document.querySelector('#oneRaceMap'), mapOptions)
-  getOneRace()
+  //this var currentRaceId comes from the race-detail hbs file
+  getOneRace(currentRaceId)
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -22,7 +27,7 @@ function initOneRaceMap() {
       };
 
       // Center map with user location
-      oneMap.setCenter(user_location);
+
 
       let imageRunner = "../images/marker2.png"
 
@@ -44,8 +49,8 @@ function initOneRaceMap() {
   }
 }
 
-function getOneRace() {
-  axios.get("/races/api/one")
+function getOneRace(currentRaceId) {
+  axios.get("/races/api/one/" + currentRaceId)
     .then(response => {
       const race = response.data
       raceInMap(race)
@@ -53,18 +58,63 @@ function getOneRace() {
     .catch(error => console.log(error))
 }
 
-function raceInMap(raceParams) {
+function raceInMap(race) {
+
   const center = {
-    lat: raceParams.startPoint.coordinates[0],
-    lng: raceParams.startPoint.coordinates[1]
+    lat: race.route[0].coordinates[0],
+    lng: race.route[0].coordinates[1],
   }
-  console.log(center);
+  oneMap.setCenter(center);
   new google.maps.Marker({
     position: center,
     map: oneMap,
-    title: raceParams.name,
+    title: race.name,
   })
 
+  const directionsService = new google.maps.DirectionsService;
+  const directionsDisplay = new google.maps.DirectionsRenderer;
 
+const wayPoints = []
+
+race.route.forEach(elem => {
+  wayPoints.push(
+    {
+      location: {
+        lat: elem.coordinates[0],
+        lng: elem.coordinates[1]
+      },
+      stopover: false
+    }
+  )
+})
+  const directionRequest = {
+    origin: {
+      lat: race.route[0].coordinates[0],
+      lng: race.route[0].coordinates[1],
+    },
+    destination: {
+      lat: race.route[race.route.length - 1].coordinates[0],
+      lng: race.route[race.route.length - 1].coordinates[1]
+    },
+    travelMode: 'WALKING',
+    waypoints: wayPoints
+  };
+
+
+  directionsService.route(
+    directionRequest,
+    function (response, status) {
+      if (status === 'OK') {
+        // everything is ok
+        directionsDisplay.setDirections(response);
+
+      } else {
+        // something went wrong
+        window.alert('Directions request failed due to ' + status);
+      }
+    }
+  );
+
+  directionsDisplay.setMap(oneMap);
 
 }
