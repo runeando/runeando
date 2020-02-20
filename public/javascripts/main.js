@@ -82,7 +82,7 @@ function racesInMap(races) {
 
     marker.addListener('click', function () {
       infowindow = new google.maps.InfoWindow({
-        content: `<a href="http://localhost:3000/races/${race._id}">Open ${race.name}</a>`
+        content: `<a href="${process.env.URL}/races/${race._id}">Open ${race.name}</a>`
       });
 
       infowindow.open(myMap, marker);
