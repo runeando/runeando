@@ -1,5 +1,3 @@
-
-
 let initialCoords = {
     lat: 40.408537,
     lng: -3.7205721,
@@ -82,7 +80,7 @@ function racesInMap(races) {
 
     marker.addListener('click', function () {
       infowindow = new google.maps.InfoWindow({
-        content: `<a href="http://localhost:3000/races/${race._id}">Open ${race.name}</a>`
+        content: `<a href="/races/${race._id}">Open ${race.name}</a>`
       });
 
       infowindow.open(myMap, marker);
