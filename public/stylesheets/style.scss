@@ -11,6 +11,14 @@ a {
 
 .page-holder {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 18rem;
+}
+
+.car{
+  margin: 0 1rem;
 }
 
 .bg-cover {
@@ -22,7 +30,7 @@ a {
 	flex-direction: row;
 	flex-wrap: wrap;
   //justify-content: flex-start;
-  justify-content: space-around;
+  justify-content: start;
 	align-items: flex-start;
 	align-content: center;
 }
@@ -35,8 +43,12 @@ h2{
 }
 
 #racesMap {
+<<<<<<< HEAD
   height: 70vh;
   width: 70vh;
+=======
+  height: 100vh; //era 70
+>>>>>>> fer
 }
 
 #oneRaceMap {
@@ -49,8 +61,10 @@ h2{
 }
 
 #card-detail{
-  margin-left: 10px;
-  margin-top: 10px;
+  width: 30vw;
+  height: 100vh;
+  img{height: auto;}
+
 }
 
 .info{
@@ -98,4 +112,9 @@ h2{
 #addraceform{
   margin: 50px;
   width: 50vw;
+}
+
+#change-img{
+  margin-left: 40px;
+  margin-top: 5px;
 }

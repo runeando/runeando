@@ -5,7 +5,14 @@ a {
   color: #006B91; }
 
 .page-holder {
-  min-height: 100vh; }
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 18rem; }
+
+.car {
+  margin: 0 1rem; }
 
 .bg-cover {
   background-size: cover !important; }
@@ -14,7 +21,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: start;
   align-items: flex-start;
   align-content: center; }
 
@@ -25,8 +32,12 @@ h2 {
   color: #017BFF; }
 
 #racesMap {
+<<<<<<< HEAD
   height: 70vh;
   width: 70vh; }
+=======
+  height: 100vh; }
+>>>>>>> fer
 
 #oneRaceMap {
   height: 100vh;
@@ -36,8 +47,10 @@ h2 {
   height: 145px; }
 
 #card-detail {
-  margin-left: 10px;
-  margin-top: 10px; }
+  width: 30vw;
+  height: 100vh; }
+  #card-detail img {
+    height: auto; }
 
 .info {
   display: flex;
@@ -80,5 +93,9 @@ h2 {
 #addraceform {
   margin: 50px;
   width: 50vw; }
+
+#change-img {
+  margin-left: 40px;
+  margin-top: 5px; }
 
 /*# sourceMappingURL=style.css.map */
