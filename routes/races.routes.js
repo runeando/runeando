@@ -88,6 +88,8 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
   } = req.body
   const imgUrl = req.file ? req.file.url : "";
 
+  //const imgUrl = req.file.url;
+
 
   const newRace = {
     name,

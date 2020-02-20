@@ -1,33 +1,31 @@
-<h1>One race detail</h1>
 
+<div class="info" class="row">
 
-<div class="info">
-  <div class="info">
-    <ul>
-      <li>{{name}}</li>
-      <li>{{description}}</li>
-    </ul>
+  {{!-- Here goes the map --}}
 
-
-
-    {{!-- <ul>
-    {{#each races}}
-
-
-    <li>
-      <a href="/races/{{this._id}}">{{this.name}}</a> | <a href="/races/{{this._id}}/delete">Delete</a>
-    </li>
-    {{/each }}
-  </ul> --}}
     <div id="oneRaceMap"></div>
-  </div>
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
+  {{!-- Here goes the card --}}
+
+    <div class="card" style="width: 18rem;" id="card-detail">
+      <img src="{{imgUrl}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{area}} | {{difficulty}} | {{length}}m</h6>
+        <p class="card-text">{{description}}</p>
+        {{!-- <a href="/races/{{_id}}" class="btn btn-primary">See more</a> --}}
+      </div>
+    </div>
+
+</div>
+
+ <script>
     var currentRaceId = "{{_id}}"
   </script>
 
-  <script src="/javascripts/oneRaceMap.js"></script>
-  <script src="/javascripts/script.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVldv6to51T5LpyubZPhnS-qOTsKu__CY&callback=initOneRaceMap"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script src="/javascripts/oneRaceMap.js"></script>
+<script src="/javascripts/script.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVldv6to51T5LpyubZPhnS-qOTsKu__CY&callback=initOneRaceMap"></script>

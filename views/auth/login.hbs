@@ -1,25 +1,41 @@
 
-<h2>Login</h2>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Your username" value="anna">
+{{!-- Added --}}
+<body>
+{{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
+<div style="background: url(../../images/bg9.jpg)" class="page-holder bg-cover">
 
-  <br><br>
+<div class="login-form">
+    <form action="/auth/login" method="POST">
+        <h2 class="text-center">Login</h2>		       
+        <div class="form-group">
+        	<div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <input id="username" type="text" class="form-control" name="username" placeholder="Username" value="anna" required="required">
+                {{!-- <input id="username" type="text" class="form-control" name="username" placeholder="Username" required="required"> --}}
+            </div>
+        </div>
+		    <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" value="anna" required="required">
+                {{!-- <input type="password" class="form-control" name="password" placeholder="Password" required="required"> --}}
+            </div>
+        </div>      
+        <br>
+          {{#if message }}
+            <div class="error-message">{{ message }}</div>
+          {{/if}}
+        <br>  
+        <div class="form-group">
+          
+            <button type="submit" class="btn btn-success btn-block login-btn">Login</button>
+        </div>
+    </form>
+    <div class="hint-text small">Don't have an account? <a href="/auth/signup" class="text-success">Sign Up Now!</a></div>
+</div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password" value="anna">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
 
-  <br><br>
+</div>
 
-  <button>Login</button>
-
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+</body>

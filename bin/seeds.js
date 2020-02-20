@@ -208,7 +208,7 @@ let races = [{
     imgUrl: "https://2.bp.blogspot.com/-gvubvC8xWV0/WHNKkyir8tI/AAAAAAAAT_o/n1HxPOVvIu8iINTy0_chW9w3QtiGTvk_ACLcB/s1600/0cdc.jpg"
   },
   {
-    _id: Race07,
+    _id: Race07, 
     name: "Race07",
     description: "Corriendo por Casa de Campo.",
     length: 13000,
