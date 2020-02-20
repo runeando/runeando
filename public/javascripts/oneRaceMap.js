@@ -60,13 +60,6 @@ function getOneRace(currentRaceId) {
 
 function raceInMap(race) {
 
-  // const destiny = {
-  //   lat: race.endPoint.coordinates[0],
-  //   lng: race.endPoint.coordinates[1]
-  // }
-
-
-
   const center = {
     lat: race.route[0].coordinates[0],
     lng: race.route[0].coordinates[1],
