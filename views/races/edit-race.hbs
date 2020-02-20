@@ -1,6 +1,5 @@
-<h1>Formulario para editar Race</h1>
+{{!-- <h1>Formulario para editar Race</h1>
 <form method="POST" action="/races/edit/{{_id}}" enctype="multipart/form-data">
-  {{!-- <input type="hidden" value="{{id}}" name="id"> --}}
   <input type="text" name="name" placeholder="Enter race name" value="{{name}}">
   <input type="text" name="description" placeholder="Enter race description" value="{{description}}" size="50">
   <input type="text" name="length" placeholder="Enter meters" value="{{length}}" size="10"> meters
@@ -13,23 +12,21 @@
   </div>
   <div class="area">
     <select name="area" class="form-control" id="select-area">
-      {{!-- <option>Select Area <Area></Area></option> --}}
       <option value="MadridRio">Madrid Rio</option>
       <option value="CasaDeCampo">Casa de Campo</option>
     </select>
   </div>
-  {{!-- add drag marker coordinates --}}
   <label>Coordinates</label>
   <input type="text" name="latitude" placeholder="latitude" value="{{lat}}">
   <input type="text" name="longitude" placeholder="longitude" value="{{lng}}">
   <section>
-    <img src="{{imgUrl}}">
+    <img src="{{imgUrl}}" height="300px">
     <h3>Change Race Photo</h3>
     <input type="file" name="imgUrl">
     <input type="hidden" name="previousImgUrl" value={{imgUrl}}>
   </section>
   <input type="submit" name="">
-</form>
+</form> --}}
 
 
 
@@ -40,20 +37,21 @@
   <div class="form-group row">
     <label for="text3" class="col-4 col-form-label" >Race name</label> 
     <div class="col-8">
-      <input id="text3" name="name" type="text" class="form-control" placeholder="Your race name">
+      <input id="text3" name="name" type="text" class="form-control" placeholder="Your race name" value="{{name}}">
     </div>
   </div>
   <div class="form-group row">
     <label for="description" class="col-4 col-form-label">Description</label> 
     <div class="col-8">
-      <textarea id="description" name="description" placeholder="Enter race description" cols="40" rows="3" class="form-control"></textarea>
+      <input id="description" name="description" placeholder="Enter race description" value="{{description}}" class="form-control">
+        {{!-- <input type="text" name="description" placeholder="Enter race description" value="{{description}}" size="50"> --}}
     </div>
   </div>
 
   <div class="form-group row">
     <label for="length" class="col-4 col-form-label">Distance</label> 
     <div class="col-8">
-      <input id="length" name="length" type="text" class="form-control" placeholder="Enter race distance in meters">
+      <input id="length" name="length" type="text" class="form-control" placeholder="Enter race distance in meters" value="{{length}}">
     </div>
   </div>
   <div class="form-group row">
@@ -78,24 +76,43 @@
   <div class="form-group row">
     <label for="lat" class="col-4 col-form-label">Coordinates</label> 
     <div class="col-8">
-      <input id="lat" name="latitude" placeholder="Latitude" type="text" class="form-control" size="50">
-      <input id="lng" name="longitude" placeholder="Longitude" type="text" class="form-control" size="50">
+      <input id="lat" name="latitude" placeholder="40.42161" value="{{lat}}" type="text" class="form-control" size="50">
+      <input id="lng" name="longitude" placeholder="-3.75664" value="{{lng}}" type="text" class="form-control" size="50">
     </div>
   </div>
 <div class="input-group">
-  <div class="input-group-prepend">
+    
+  
+{{!--   <div class="input-group-prepend">
     <span class="input-group-text" id="inputGroupFileAddon01">Upload Race Photo</span>
+  </div> --}}
+  <h3>Your race image </h3>
+  <section>
+    <div id="change-img"><img src="{{imgUrl}}" height="300px"></div>
+    <h5>Change Race Photo</h5>
+    <input type="file" name="imgUrl">
+    <input type="hidden" name="previousImgUrl" value={{imgUrl}}>
+      <div class="form-group row">
+    <div class="col-md-3 offset-md-3">
+      <button name="submit" type="submit" class="btn btn-primary">Update</button>
+    </div>
   </div>
+  </section>
+
+  {{!-- <div><img src="{{imgUrl}}" height="200px"></div>
   <div class="custom-file">
     <input type="file" name="imgUrl" class="custom-file-input" id="inputGroupFile01"
       aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    <input type="hidden" name="previousImgUrl" value={{imgUrl}}>  
+    <label class="custom-file-label" for="inputGroupFile01">Change Race photo</label>
   </div>
-</div>
-  <br>
-  <div class="form-group row">
-    <div class="offset-4 col-8">
-      <button name="submit" type="submit" class="btn btn-primary">Create Race</button>
-    </div>
-  </div>
+</div> --}}
+
 </form>
+
+{{!-- <section>
+    <img src="{{imgUrl}}">
+    <h3>Change Race Photo</h3>
+    <input type="file" name="imgUrl">
+    <input type="hidden" name="previousImgUrl" value={{imgUrl}}>
+  </section> --}}

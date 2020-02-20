@@ -1,24 +1,25 @@
-
 <div class="info" class="row">
 
   {{!-- Here goes the map --}}
 
-    <div id="oneRaceMap"></div>
+  <div id="oneRaceMap"></div>
 
   {{!-- Here goes the card --}}
 
-    <div class="card" style="width: 18rem;" id="card-detail">
-      <img src="{{imgUrl}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{area}} | {{difficulty}} | {{length}}m</h6>
-        <p class="card-text">{{description}}</p>
-        {{!-- <a href="/races/{{_id}}" class="btn btn-primary">See more</a> --}}
-      </div>
+  <div class="card" id="card-detail">
+    <img src="{{imgUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{area}} | {{difficulty}} | {{length}}m</h6>
+      <p class="card-text">{{description}}</p>
+      {{!-- <a href="/races/{{_id}}" class="btn btn-primary">See more</a> --}}
     </div>
+  </div>
 
 </div>
-
+<script>
+  var currentRaceId = "{{_id}}"
+</script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script src="/javascripts/oneRaceMap.js"></script>
