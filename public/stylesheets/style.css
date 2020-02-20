@@ -35,7 +35,7 @@ h2 {
 
 #racesMap {
   height: 100vh;
-  width: 100vh; }
+  width: 100vw; }
 
 #oneRaceMap {
   height: 100vh;
@@ -46,7 +46,8 @@ h2 {
 
 #card-detail {
   width: 30vw;
-  height: 100vh; }
+  height: 100vh;
+  margin: 0; }
   #card-detail img {
     height: auto; }
 
