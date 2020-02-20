@@ -103,9 +103,10 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
 
   }
   Race.create(newRace)
-    .then(raceCreated =>
+    .then(raceCreated => {
+      console.log(raceCreated);
 
-      User.findOneAndUpdate(req.user.id, {
+      User.findByIdAndUpdate(req.user._id, {
         $push: {
           races: raceCreated._id
         }
@@ -115,7 +116,8 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
       .catch(err => console.log(err))
 
       // .then(userUpdated => res.json(userUpdated))
-    );
+    
+  })
 
 })
 

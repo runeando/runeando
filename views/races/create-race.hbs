@@ -1,34 +1,33 @@
-
-
 {{!-- Adding here --}}
 
 <form method="POST" action="/races/new" enctype="multipart/form-data" id="addraceform">
-<h2>Add Race</h2>
+  <h2>Add Race</h2>
   <div class="form-group row">
-    
-    <label for="text3" class="col-4 col-form-label" >Race name</label> 
+
+    <label for="text3" class="col-4 col-form-label">Race name</label>
     <div class="col-8">
       <input id="text3" name="name" type="text" class="form-control" placeholder="Your race name">
       {{!-- <input type="text" name="name" placeholder="Enter race name" value="Race14"> --}}
     </div>
   </div>
   <div class="form-group row">
-    <label for="description" class="col-4 col-form-label">Description</label> 
+    <label for="description" class="col-4 col-form-label">Description</label>
     <div class="col-8">
-      <textarea id="description" name="description" placeholder="Enter race description" cols="40" rows="3" class="form-control"></textarea>
+      <textarea id="description" name="description" placeholder="Enter race description" cols="40" rows="3"
+        class="form-control"></textarea>
       {{!-- <input type="text" name="description"  value="pretty race"> --}}
     </div>
   </div>
 
   <div class="form-group row">
-    <label for="length" class="col-4 col-form-label">Distance</label> 
+    <label for="length" class="col-4 col-form-label">Distance</label>
     <div class="col-8">
       <input id="length" name="length" type="text" class="form-control" placeholder="Enter race distance in meters">
-        {{!-- <input type="text" name="length" placeholder="Enter meters" value="1000"> meters --}}
+      {{!-- <input type="text" name="length" placeholder="Enter meters" value="1000"> meters --}}
     </div>
   </div>
   <div class="form-group row">
-    <label for="select1" class="col-4 col-form-label">Difficulty</label> 
+    <label for="select1" class="col-4 col-form-label">Difficulty</label>
     <div class="col-8">
       <select id="select-difficulty" name="difficulty" class="custom-select">
         {{!-- <select name="difficulty" class="form-control" id="select-difficulty"></select> 
@@ -43,7 +42,7 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="select-area" class="col-4 col-form-label">Area</label> 
+    <label for="select-area" class="col-4 col-form-label">Area</label>
     <div class="col-8">
       <select id="select-area" name="area" class="custom-select">
         {{!-- <select name="area" class="form-control" id="select-area"></select>
@@ -60,10 +59,10 @@
   <input type="text" name="latitude" placeholder="latitude" value="40.393507">
   <input type="text" name="longitude" placeholder="longitude" value="-3.7017243">
     ////////// --}}
-    <label for="lat" class="col-4 col-form-label">Coordinates</label> 
+    <label for="lat" class="col-4 col-form-label">Coordinates</label>
     <div class="col-8">
-      <input id="lat" name="latitude" placeholder="40.42161" type="text" class="form-control" size="50">
-      <input id="lng" name="longitude" placeholder="-3.75664" type="text" class="form-control" size="50">
+      <input id="lat" name="latitude" value="40.42161" type="text" class="form-control" size="50">
+      <input id="lng" name="longitude" value="-3.75664" type="text" class="form-control" size="50">
     </div>
   </div>
   {{!-- <div class="form-group row">
@@ -72,16 +71,16 @@
       <input id="lng" name="longitude" placeholder="Longitude" type="text" class="form-control">
     </div>
   </div>  --}}
-<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroupFileAddon01">Upload Race Photo</span>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroupFileAddon01">Upload Race Photo</span>
+    </div>
+    <div class="custom-file">
+      <input type="file" name="imgUrl" class="custom-file-input" id="inputGroupFile01"
+        aria-describedby="inputGroupFileAddon01">
+      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
   </div>
-  <div class="custom-file">
-    <input type="file" name="imgUrl" class="custom-file-input" id="inputGroupFile01"
-      aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-  </div>
-</div>
   <br>
   <div class="form-group row">
     <div class="offset-4 col-8">
