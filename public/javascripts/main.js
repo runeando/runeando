@@ -1,3 +1,5 @@
+
+
 let initialCoords = {
     lat: 40.408537,
     lng: -3.7205721,
@@ -7,7 +9,11 @@ let initialCoords = {
 function initMap() {
   let mapOptions = {
     center: initialCoords,
-    zoom: 13
+    zoom: 13,
+    mapTypeControl: false,
+    streetViewControl: false,
+    // zoomControl: false,
+    fullscreenControl: false
   }
   myMap = new google.maps.Map(document.querySelector('#racesMap'), mapOptions)
   getRaces()
@@ -44,7 +50,6 @@ function initMap() {
 
 }
 
-
 function getRaces() {
 
   axios.get("/races/api")
@@ -60,19 +65,27 @@ function getRaces() {
 
 function racesInMap(races) {
 
+  markerArr = []
   races.forEach(race => {
-
+    let infowindow;
     const center = {
 
       lat: race.startPoint.coordinates[0],
       lng: race.startPoint.coordinates[1]
     }
-    console.log(center);
-    new google.maps.Marker({
+
+    let marker = new google.maps.Marker({
       position: center,
       map: myMap,
       title: race.name,
     })
 
+    marker.addListener('click', function () {
+      infowindow = new google.maps.InfoWindow({
+        content: `<a href="http://localhost:3000/races/${race._id}">Open ${race.name}</a>`
+      });
+
+      infowindow.open(myMap, marker);
+    });
   })
 }

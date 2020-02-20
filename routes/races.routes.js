@@ -57,14 +57,15 @@ router.get('/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 
-router.get('/api/one', (req, res, next) => {
-  Race.findById(oneRace)
+router.get('/api/one/:id', (req, res, next) => {
+  Race.findById(req.params.id)
     .then(race => {
+      console.log("race", race)
       res.json(race)
-      let {
-        raceData
-      } = req.body
-      console.log(raceData);
+      // let {
+      //   raceData
+      // } = req.body
+      // console.log(raceData);
     })
     .catch(err => console.log(err))
 });
@@ -85,7 +86,7 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
     length,
 
   } = req.body
-const imgUrl = req.file ? req.file.url : "";
+  const imgUrl = req.file ? req.file.url : "";
 
 
   const newRace = {
@@ -192,12 +193,12 @@ router.get('/map', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 /* Show races from one user */
 router.get('/myraces', ensureLogin.ensureLoggedIn(), (req, res, next) => {
   User
-  .findById(req.user._id)
-  .populate('races')
-  .then(userRaces => {
-    //res.json(userRaces); //Si quisiera id .id
-    res.render('races/myraces', userRaces)
-  })
+    .findById(req.user._id)
+    .populate('races')
+    .then(userRaces => {
+      //res.json(userRaces); //Si quisiera id .id
+      res.render('races/myraces', userRaces)
+    })
 })
 
 //Crear un get con el formulario para GET

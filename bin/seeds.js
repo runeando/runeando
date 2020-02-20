@@ -35,8 +35,27 @@ let races = [{
       type: "Point",
       coordinates: [40.393507, -3.7017243]
     },
+    route: [{
+        type: "Point",
+        coordinates: [40.393507, -3.7017243]
+      },
+      {
+        type: "Point",
+        coordinates: [40.414026, -3.722066]
+      }, 
+      {
+        type: "Point",
+        coordinates: [40.401478, -3.725306]
+      },
+      {
+        type: "Point",
+        coordinates: [40.397850, -3.716294]
+      }
+    ],
     imgUrl: "https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/recursosturisticos/infoturistica/Top10Puente_1392309099.188.jpg?itok=pFowRMon"
-  }, {
+  },
+
+  {
     _id: Race02,
     name: "Race02",
     description: "Correr en Madrid Rio en la zona del puente de los franceses.",
@@ -182,7 +201,7 @@ let races = [{
   {
     _id: Race13,
     name: "Race13",
-    description: "H emos ido a cuatro minutos el kilómetro, Genial.",
+    description: "Hemos ido a cuatro minutos el kilómetro, Genial.",
     length: 5200,
     area: "MadridRio",
     difficulty: "Easy",
