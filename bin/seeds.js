@@ -26,7 +26,7 @@ const Race13 = new mongoose.mongo.ObjectId();
 
 let races = [{
     _id: Race01,
-    name: "Race01",
+    name: "Carrera por la tarde",
     description: "Area Madrid Rio por Marques de Vadillo.",
     length: 1728,
     area: "MadridRio",
@@ -54,11 +54,10 @@ let races = [{
     ],
     imgUrl: "https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/recursosturisticos/infoturistica/Top10Puente_1392309099.188.jpg?itok=pFowRMon"
   },
-
   {
     _id: Race02,
-    name: "Race02",
-    description: "Correr en Madrid Rio en la zona del puente de los franceses.",
+    name: "Madrid Río de noche",
+    description: "Muy agradable y mucha gente corriendo.",
     length: 7600,
     area: "MadridRio",
     difficulty: "Medium",
@@ -87,8 +86,8 @@ let races = [{
   },
   {
     _id: Race03,
-    name: "Race03",
-    description: "Correr en Parque Manzanares.",
+    name: "Parque Manzanares",
+    description: "Poca luz en algunos sitios.",
     length: 10500,
     area: "MadridRio",
     difficulty: "Hard",
@@ -117,8 +116,8 @@ let races = [{
   },
   {
     _id: Race04,
-    name: "Race04",
-    description: "Correr en Madrid Rio en la zona del mirador del Manzanares.",
+    name: "Mirador Manzanares",
+    description: "Recomendable ver toda la vista. Están tirando el Calderón.",
     length: 5000,
     area: "MadridRio",
     difficulty: "Medium",
@@ -148,7 +147,7 @@ let races = [{
   },
   {
     _id: Race05,
-    name: "Race05",
+    name: "Parque Oeste - CdC",
     description: "Correr en Casa de Campo desde Parque del Oeste.",
     length: 10000,
     area: "CasaDeCampo",
@@ -173,14 +172,13 @@ let races = [{
         type: "Point",
         coordinates: [40.4181072, -3.7283303]
       }
-
     ],
     imgUrl: "https://www.esmadrid.com/sites/default/files/styles/content_type_full/public/recursosturisticos/infoturistica/parqueoeste_07.jpg"
   },
   {
     _id: Race06,
-    name: "Race06",
-    description: "Correr en Casa de Campo modo hardcore.",
+    name: "Media bastante rápido",
+    description: "Casa de Campo modo hardcore. Cuesta final infernal",
     length: 20000,
     area: "CasaDeCampo",
     difficulty: "Hard",
@@ -208,9 +206,9 @@ let races = [{
     imgUrl: "https://2.bp.blogspot.com/-gvubvC8xWV0/WHNKkyir8tI/AAAAAAAAT_o/n1HxPOVvIu8iINTy0_chW9w3QtiGTvk_ACLcB/s1600/0cdc.jpg"
   },
   {
-    _id: Race07, 
-    name: "Race07",
-    description: "Corriendo por Casa de Campo.",
+    _id: Race07,
+    name: "13 Km toda la vuelta",
+    description: "Casa de Campo y luego al Urogallo de cerves.",
     length: 13000,
     area: "CasaDeCampo",
     difficulty: "Medium",
@@ -270,8 +268,8 @@ let races = [{
     imgUrl: "https://madridsecreto.co/wp-content/uploads/2019/01/LagoCasaCampo_1.jpg"
   }, {
     _id: Race08,
-    name: "Race08",
-    description: "Medio Maratón en Lago, Casa de Campo.",
+    name: "8Km Farlek",
+    description: "Series con HIIT",
     length: 8000,
     area: "CasaDeCampo",
     difficulty: "Hard",
@@ -315,7 +313,7 @@ let races = [{
     imgUrl: "https://lh5.googleusercontent.com/p/AF1QipOAXbPxUCGOdE5Z6BTrzFSzuzztNp0RbEy98XBM=w408-h272-k-no"
   }, {
     _id: Race09,
-    name: "Race09",
+    name: "Subida cuesta CdC",
     description: "La cuesta un poco dura, destroza piernas.",
     length: 5000,
     area: "CasaDeCampo",
@@ -348,7 +346,7 @@ let races = [{
     imgUrl: "https://lh5.googleusercontent.com/p/AF1QipMt5V0VP3aa9DlR5a6FMLd1ObeD6Z-7Ou4oyYOn=w408-h306-k-no"
   }, {
     _id: Race10,
-    name: "Race10",
+    name: "8km con lluvia",
     description: "Bastante barro tras la lluvia.",
     length: 8000,
     area: "CasaDeCampo",
@@ -393,7 +391,7 @@ let races = [{
     imgUrl: "https://lh5.googleusercontent.com/p/AF1QipOY2mHobtAbW1JjL22v5nImqcdIt7ZcC9WdBwaR=w428-h240-k-no"
   }, {
     _id: Race11,
-    name: "Race11",
+    name: "Madrid Río por la carretera",
     description: "Han cambiado el asfalto, muy recomendable a última hora del día.",
     length: 8100,
     area: "MadridRio",
@@ -438,7 +436,7 @@ let races = [{
     imgUrl: "https://lh5.googleusercontent.com/p/AF1QipNV1mmGo742Swk5wqmK3J5R0XYYGJswnCoyF6l_=w408-h306-k-no"
   }, {
     _id: Race12,
-    name: "Race12",
+    name: "Finde en MadridRío",
     description: "Bastantes bicicletas.",
     length: 5000,
     area: "MadridRio",
@@ -467,8 +465,8 @@ let races = [{
     imgUrl: "https://lh5.googleusercontent.com/p/AF1QipOCnjK3bnPf_u6XsRW-D16CC91z5zqmd9vcCqTX=w408-h306-k-no"
   }, {
     _id: Race13,
-    name: "Race13",
-    description: "H emos ido a cuatro minutos el kilómetro, Genial.",
+    name: "5K - Best time ever!!!",
+    description: "Hemos ido a cuatro minutos el kilómetro, Genial.",
     length: 5200,
     area: "MadridRio",
     difficulty: "Easy",
@@ -496,9 +494,6 @@ let races = [{
     imgUrl: "https://lh5.googleusercontent.com/p/AF1QipOjlEysQnZKn_P2kXtvUyeAERCrHd0y17ikDF_i=w426-h240-k-no"
   }
 ];
-
-
-
 
 let users = [{
     username: "anna",

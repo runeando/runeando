@@ -83,6 +83,8 @@ const {
     length,
   } = req.body
 const imgUrl = req.file ? req.file.url : "";
+
+
 const latArr =req.body.latitudeArr;
 const lngArr =req.body.longitudeArr;
 

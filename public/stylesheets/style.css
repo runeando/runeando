@@ -125,4 +125,12 @@ h2 {
     width: 100%;
     display: block; }
 
+.loader {
+  width: 60px;
+  display: none;
+  z-index: 99;
+  margin: 1rem auto; }
+  .loader img {
+    width: 100%; }
+
 /*# sourceMappingURL=style.css.map */

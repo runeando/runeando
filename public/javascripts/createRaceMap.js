@@ -21,8 +21,6 @@ function initNewRaceMap() {
 
   showPlace(theMap, lat, lng)
 
-
-
   theMap.addListener('click', function (e) {
     console.log(e)
     const marker2 = new google.maps.Marker({
@@ -64,32 +62,6 @@ function showPlace(theMap, lat, lng) {
   })
 
 }
-
-
-// function showPlaces(theMap) {
-//   axios.get("http://localhost:3000/allPlaces").then(allPlaces => {
-//     var iconBase = '../../images/';
-//     allPlaces.data.forEach(place => {
-//       setTimeout(() => {
-//         new google.maps.Marker({
-//           position: {
-//             lat: place.pos.lat,
-//             lng: place.pos.lng
-//           },
-//           map: theMap,
-//           title: place.name,
-//           animation: google.maps.Animation.DROP,
-//           draggable: false,
-//           icon: iconBase + "icon_coffee.png"
-//         });
-//       }, randomFloat(0.25, 1.25) * 1000);
-
-//     });
-
-//   });
-// }
-
-
 
 
 function randomFloat(min, max) {

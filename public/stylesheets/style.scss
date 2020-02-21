@@ -161,3 +161,14 @@ h2 {
     display: block;
   }
 }
+
+.loader {
+  width: 60px;
+  display: none;
+  z-index: 99;
+  margin: 1rem auto;
+
+  img {
+    width: 100%;
+  }
+}
