@@ -87,4 +87,19 @@
       <button name="submit" type="submit" class="btn btn-primary">Create Race</button>
     </div>
   </div>
+
+  
+  <input type="hidden" name="lat" id="lat" value="40.416928">
+  <input type="hidden" name="lng" id="lng" value="-3.703492">
+  <p class="map-indications">Drag and drop 📍 the marker to set the location</p>
+
+  <div id="map-detail"></div>
+
+
 </form>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/javascripts/createRaceMap.js"></script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVldv6to51T5LpyubZPhnS-qOTsKu__CY&callback=initNewRaceMap"></script>
