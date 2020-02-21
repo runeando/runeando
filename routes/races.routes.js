@@ -75,18 +75,14 @@ router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 //POST To create a new race
 router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), (req, res, next) => {
-  console.log(req.body)
-  const {
+const {
     name,
     description,
     area,
     difficulty,
     length,
-
   } = req.body
-  const imgUrl = req.file ? req.file.url : "";
-
-  //const imgUrl = req.file.url;
+const imgUrl = req.file ? req.file.url : "";
 const latArr =req.body.latitudeArr;
 const lngArr =req.body.longitudeArr;
 
@@ -100,13 +96,9 @@ latArr.forEach((lat, i) => {
     type: "Point",
     coordinates: [lat, lngArr[i]]
   })
-//  point.coordinates.push(lat)
 })
 
 console.log(routeCoords)
-
-
-
   const newRace = {
     name,
     description,
@@ -155,9 +147,7 @@ router.get('/edit/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post('/edit/:id', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), (req, res, next) => {
-  console.log("entra bien")
   console.log(req.body)
-
   const {
     name,
     description,
@@ -165,9 +155,21 @@ router.post('/edit/:id', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUr
     difficulty,
     length,
   } = req.body;
-
   const imgUrl = req.file ? req.file.url : req.body.previousImgUrl;
-  console.log(imgUrl)
+  console.log(req.body.latitudeEditArr)
+const latEditArr = req.body.latitudeEditArr;
+const lngEditArr = req.body.longitudeEditArr;
+let routeEditCoords = [{
+  type: "Point",
+  coordinates: [req.body.lat, req.body.lng]
+}]
+
+latEditArr.forEach((lat, i) => {
+  routeEditCoords.push({
+    type: "Point",
+    coordinates: [lat, lngEditArr[i]]
+  })
+})
 
   let raceToUpdate = {
     name,
@@ -178,12 +180,13 @@ router.post('/edit/:id', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUr
     imgUrl,
     startPoint: {
       type: "Point",
-      coordinates: [req.body.latitude, req.body.longitude]
-    }
+      coordinates: [req.body.lat, req.body.lng]
+    },
+    route: routeEditCoords
   }
   Race.findByIdAndUpdate(req.params.id, raceToUpdate)
     .then(() => console.log(req.params.id))
-    .then(() => res.redirect('/races/myraces'))
+    .then(() => res.redirect(`/races/${req.params.id}`))
     .catch(err => console.log(err))
 })
 
