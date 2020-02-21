@@ -1,99 +1,104 @@
 {{!-- Adding here --}}
 
 <form method="POST" action="/races/new" enctype="multipart/form-data" id="addraceform">
-  <h2>Add Race</h2>
-  <div class="form-group row">
+  <div>
+    <h2>Add Race</h2>
+    <div class="form-group row">
 
-    <label for="text3" class="col-4 col-form-label">Race name</label>
-    <div class="col-8">
-      <input id="text3" name="name" type="text" class="form-control" placeholder="Your race name">
-      {{!-- <input type="text" name="name" placeholder="Enter race name" value="Race14"> --}}
+      <label for="text3" class="col-4 col-form-label">Race name</label>
+      <div class="col-8">
+        <input id="text3" name="name" type="text" class="form-control" placeholder="Your race name">
+        {{!-- <input type="text" name="name" placeholder="Enter race name" value="Race14"> --}}
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    <label for="description" class="col-4 col-form-label">Description</label>
-    <div class="col-8">
-      <textarea id="description" name="description" placeholder="Enter race description" cols="40" rows="3"
-        class="form-control"></textarea>
-      {{!-- <input type="text" name="description"  value="pretty race"> --}}
+    <div class="form-group row">
+      <label for="description" class="col-4 col-form-label">Description</label>
+      <div class="col-8">
+        <textarea id="description" name="description" placeholder="Enter race description" cols="40" rows="3"
+          class="form-control"></textarea>
+        {{!-- <input type="text" name="description"  value="pretty race"> --}}
+      </div>
     </div>
-  </div>
 
-  <div class="form-group row">
-    <label for="length" class="col-4 col-form-label">Distance</label>
-    <div class="col-8">
-      <input id="length" name="length" type="text" class="form-control" placeholder="Enter race distance in meters">
-      {{!-- <input type="text" name="length" placeholder="Enter meters" value="1000"> meters --}}
+    <div class="form-group row">
+      <label for="length" class="col-4 col-form-label">Distance</label>
+      <div class="col-8">
+        <input id="length" name="length" type="text" class="form-control" placeholder="Enter race distance in meters">
+        {{!-- <input type="text" name="length" placeholder="Enter meters" value="1000"> meters --}}
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    <label for="select1" class="col-4 col-form-label">Difficulty</label>
-    <div class="col-8">
-      <select id="select-difficulty" name="difficulty" class="custom-select">
-        {{!-- <select name="difficulty" class="form-control" id="select-difficulty"></select> 
+    <div class="form-group row">
+      <label for="select1" class="col-4 col-form-label">Difficulty</label>
+      <div class="col-8">
+        <select id="select-difficulty" name="difficulty" class="custom-select">
+          {{!-- <select name="difficulty" class="form-control" id="select-difficulty"></select> 
             <select name="difficulty" class="form-control" id="select-difficulty">
       <option value="Easy">Easy</option>
       <option value="Medium">Medium</option>
       <option value="Hard">Hardcore</option>--}}
-        <option value="Easy">Easy</option>
-        <option value="Medium">Medium</option>
-        <option value="Hard">Hard</option>
-      </select>
+          <option value="Easy">Easy</option>
+          <option value="Medium">Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    <label for="select-area" class="col-4 col-form-label">Area</label>
-    <div class="col-8">
-      <select id="select-area" name="area" class="custom-select">
-        {{!-- <select name="area" class="form-control" id="select-area"></select>
+    <div class="form-group row">
+      <label for="select-area" class="col-4 col-form-label">Area</label>
+      <div class="col-8">
+        <select id="select-area" name="area" class="custom-select">
+          {{!-- <select name="area" class="form-control" id="select-area"></select>
               <option value="MadridRio">Madrid Rio</option>
       <option value="CasaDeCampo">Casa de Campo</option> --}}
-        <option value="MadridRio">Madrid Río</option>
-        <option value="CasaDeCampo">Casa de Campo</option>
-      </select>
+          <option value="MadridRio">Madrid Río</option>
+          <option value="CasaDeCampo">Casa de Campo</option>
+        </select>
+      </div>
     </div>
-  </div>
-  <div class="form-group row">
-    {{!-- //////////
+    <div class="form-group row coordinates">
+      {{!-- //////////
 <label>Coordinates</label>
   <input type="text" name="latitude" placeholder="latitude" value="40.393507">
   <input type="text" name="longitude" placeholder="longitude" value="-3.7017243">
     ////////// --}}
-    <label for="lat" class="col-4 col-form-label">Coordinates</label>
-    <div class="col-8">
-      <input id="lat" name="latitude" value="40.42161" type="text" class="form-control" size="50">
-      <input id="lng" name="longitude" value="-3.75664" type="text" class="form-control" size="50">
+      <label for="lat" class="col-4 col-form-label">Coordinates</label>
+      <div class="col-8">
+        <input id="lat" name="lat" value="40.42161" type="text" class="form-control" size="50">
+        <input id="lng" name="lng" value="-3.75664" type="text" class="form-control" size="50">
+      </div>
     </div>
-  </div>
-  {{!-- <div class="form-group row">
+    {{!-- <div class="form-group row">
     <label for="lng" class="col-4 col-form-label"></label> 
     <div class="col-8">
       <input id="lng" name="longitude" placeholder="Longitude" type="text" class="form-control">
     </div>
   </div>  --}}
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroupFileAddon01">Upload Race Photo</span>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload Race Photo</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" name="imgUrl" class="custom-file-input" id="inputGroupFile01"
+          aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
     </div>
-    <div class="custom-file">
-      <input type="file" name="imgUrl" class="custom-file-input" id="inputGroupFile01"
-        aria-describedby="inputGroupFileAddon01">
-      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    <br>
+    <div class="form-group row">
+      <div class="offset-4 col-8">
+        <button name="submit" type="submit" class="btn btn-primary">Create Race</button>
+      </div>
     </div>
-  </div>
-  <br>
-  <div class="form-group row">
-    <div class="offset-4 col-8">
-      <button name="submit" type="submit" class="btn btn-primary">Create Race</button>
-    </div>
+
+{{!-- 
+    <input type="hidden" name="lat" id="lat" value="40.416928">
+    <input type="hidden" name="lng" id="lng" value="-3.703492"> --}}
   </div>
 
-  
-  <input type="hidden" name="lat" id="lat" value="40.416928">
-  <input type="hidden" name="lng" id="lng" value="-3.703492">
-  <p class="map-indications">Drag and drop 📍 the marker to set the location</p>
+  <div>
+    <p class="map-indications">Drag and drop 📍 the marker to set the location</p>
 
-  <div id="map-detail"></div>
+    <div id="map-detail"></div>
+  </div>
 
 
 </form>

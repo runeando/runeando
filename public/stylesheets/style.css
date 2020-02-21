@@ -102,4 +102,12 @@ h2 {
   float: right;
   width: 50vw; }
 
+#addraceform {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: stretch; }
+
 /*# sourceMappingURL=style.css.map */

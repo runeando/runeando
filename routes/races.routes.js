@@ -75,7 +75,7 @@ router.get('/new', ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 //POST To create a new race
 router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), (req, res, next) => {
-  console.log(req.user._id)
+  console.log(req.body)
   const {
     name,
     description,
@@ -87,6 +87,24 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
   const imgUrl = req.file ? req.file.url : "";
 
   //const imgUrl = req.file.url;
+const latArr =req.body.latitudeArr;
+const lngArr =req.body.longitudeArr;
+
+let routeCoords = [{
+  type: "Point",
+  coordinates: [req.body.lat, req.body.lng]
+}]
+
+latArr.forEach((lat, i) => {
+  routeCoords.push( {
+    type: "Point",
+    coordinates: [lat, lngArr[i]]
+  })
+//  point.coordinates.push(lat)
+})
+
+console.log(routeCoords)
+
 
 
   const newRace = {
@@ -98,26 +116,27 @@ router.post('/new', ensureLogin.ensureLoggedIn(), uploadCloud.single("imgUrl"), 
     imgUrl,
     startPoint: {
       type: "Point",
-      coordinates: [req.body.latitude, req.body.longitude]
-    }
-
+      coordinates: [req.body.lat, req.body.lng]
+    },
+    route: routeCoords
   }
+
   Race.create(newRace)
     .then(raceCreated => {
       console.log(raceCreated);
 
       User.findByIdAndUpdate(req.user._id, {
-        $push: {
-          races: raceCreated._id
-        }
-      })
-      .then(res.redirect('/races'))
-      //acceder al id de la race creada, y push al array. traer al array del req.user
-      .catch(err => console.log(err))
+          $push: {
+            races: raceCreated._id
+          }
+        })
+        .then(res.redirect('/races'))
+        //acceder al id de la race creada, y push al array. traer al array del req.user
+        .catch(err => console.log(err))
 
       // .then(userUpdated => res.json(userUpdated))
-    
-  })
+
+    })
 
 })
 
