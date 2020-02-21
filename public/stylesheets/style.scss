@@ -1,11 +1,9 @@
-
-
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #006B91;
+  color: #006b91;
   //text-decoration: none;
 }
 
@@ -17,7 +15,7 @@ a {
   padding-bottom: 18rem;
 }
 
-.card{
+.card {
   margin: 0 1rem 2rem;
   form {
     display: inline;
@@ -28,21 +26,21 @@ a {
   background-size: cover !important;
 }
 
-#card-container{
+#card-container {
   display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   //justify-content: flex-start;
   justify-content: start;
-	align-items: flex-start;
-	align-content: center;
+  align-items: flex-start;
+  align-content: center;
 }
 
-h2{
+h2 {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 30px;
-  color: #017BFF;
+  color: #017bff;
 }
 
 #racesMap {
@@ -59,76 +57,96 @@ h2{
   height: 145px;
 }
 
-#card-detail{
+#card-detail {
   width: 30vw;
   height: 100vh;
-  img{height: auto;}
+  img {
+    height: auto;
+  }
   margin: 0;
-
 }
 
-.info{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: center;
+.info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
 }
 
 //Form Styles for Login & Signup
 .login-form {
-    width: 340px;
-    margin: 30px auto;
-    position: absolute;
-    background-color: white;
+  width: 340px;
+  margin: 30px auto;
+  position: absolute;
+  background-color: white;
 }
-  .login-form form {
-    margin-bottom: 15px;
-      //background: #f7f7f7;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-      padding: 30px;
-  }
-  .login-form h2 {
-      margin: 0 0 15px;
-  }
-  .login-form .hint-text {
+.login-form form {
+  margin-bottom: 15px;
+  //background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.login-form h2 {
+  margin: 0 0 15px;
+}
+.login-form .hint-text {
   color: #777;
   padding-bottom: 15px;
   text-align: center;
-  }
-  .form-control, .btn {
-      min-height: 38px;
-      border-radius: 2px;
-  }
-  .login-btn {        
-      font-size: 15px;
-      font-weight: bold;
-  }
-.input-group-addon .fa{
+}
+.form-control,
+.btn {
+  min-height: 38px;
+  border-radius: 2px;
+}
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+}
+.input-group-addon .fa {
   font-size: 18px;
 }
 
-#addraceform{
-  margin: 50px;
-  width: 50vw;
-}
+// #addraceform {
+//   margin: 50px;
+//   width: 50vw;
+// }
 
-#change-img{
+#change-img {
   margin-left: 40px;
   margin-top: 5px;
 }
 
+
+.form-race {
+  display:flex;
+  width:100%;
+  padding: 5%;
+}
+
+.map-container {
+  padding: 0 2.5%;
+  width:50%;
+}
+
+.form-container {
+  width:50%;
+  padding: 0 2.5%;
+
+  h2 {margin:0}
+
+}
+
 #map-detail {
-  height: 50vh;
-  float: right;
-  width: 50vw;
+  width:100%;
+  height:500px;
 }
-#addraceform {
-display: flex;
-flex-direction: column;
-flex-wrap: nowrap;
-justify-content: center;
-align-items: flex-start;
-align-content: stretch;
-}
+// #addraceform {
+//   display: flex;
+//   flex-wrap: nowrap;
+//   justify-content: center;
+//   align-items: flex-start;
+//   align-content: stretch;
+// }

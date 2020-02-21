@@ -1,8 +1,10 @@
 {{!-- Adding here --}}
 
-<form method="POST" action="/races/new" enctype="multipart/form-data" id="addraceform">
-  <div>
+<form class='form-race' method="POST" action="/races/new" enctype="multipart/form-data" id="addraceform">
+  <div class="form-container">
     <h2>Add Race</h2>
+
+
     <div class="form-group row">
 
       <label for="text3" class="col-4 col-form-label">Race name</label>
@@ -88,15 +90,10 @@
         <button name="submit" type="submit" class="btn btn-primary">Create Race</button>
       </div>
     </div>
-
-{{!-- 
-    <input type="hidden" name="lat" id="lat" value="40.416928">
-    <input type="hidden" name="lng" id="lng" value="-3.703492"> --}}
   </div>
 
-  <div>
+  <div class="map-container">
     <p class="map-indications">Drag and drop 📍 the marker to set the location</p>
-
     <div id="map-detail"></div>
   </div>
 

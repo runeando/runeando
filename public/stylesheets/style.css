@@ -2,7 +2,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #006B91; }
+  color: #006b91; }
 
 .page-holder {
   min-height: 100vh;
@@ -31,7 +31,7 @@ h2 {
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 30px;
-  color: #017BFF; }
+  color: #017bff; }
 
 #racesMap {
   height: 100vh;
@@ -78,7 +78,8 @@ h2 {
   padding-bottom: 15px;
   text-align: center; }
 
-.form-control, .btn {
+.form-control,
+.btn {
   min-height: 38px;
   border-radius: 2px; }
 
@@ -89,25 +90,27 @@ h2 {
 .input-group-addon .fa {
   font-size: 18px; }
 
-#addraceform {
-  margin: 50px;
-  width: 50vw; }
-
 #change-img {
   margin-left: 40px;
   margin-top: 5px; }
 
-#map-detail {
-  height: 50vh;
-  float: right;
-  width: 50vw; }
-
-#addraceform {
+.form-race {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: stretch; }
+  width: 100%;
+  padding: 5%; }
+
+.map-container {
+  padding: 0 2.5%;
+  width: 50%; }
+
+.form-container {
+  width: 50%;
+  padding: 0 2.5%; }
+  .form-container h2 {
+    margin: 0; }
+
+#map-detail {
+  width: 100%;
+  height: 500px; }
 
 /*# sourceMappingURL=style.css.map */

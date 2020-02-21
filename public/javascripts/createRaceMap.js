@@ -39,8 +39,8 @@ function initNewRaceMap() {
 
     let DOMEl = document.querySelector('.coordinates')
     DOMEl.innerHTML += `<div class="col-8">
-        <input id="lat" name="latitudeArr" value="${marker2.position.lat()}" type="text" class="form-control" size="50">
-        <input id="lng" name="longitudeArr" value="${marker2.position.lng()}" class="form-control" size="50"></div>`
+        <input id="lat" name="latitudeArr" value="${marker2.position.lat()}" type="hidden" class="form-control" size="50">
+        <input id="lng" name="longitudeArr" value="${marker2.position.lng()}" type="hidden" class="form-control" size="50"></div>`
   })
 
 }
