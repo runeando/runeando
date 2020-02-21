@@ -130,7 +130,7 @@ console.log(routeCoords)
             races: raceCreated._id
           }
         })
-        .then(res.redirect('/races'))
+        .then(res.redirect(`/races/${raceCreated._id}`))
         //acceder al id de la race creada, y push al array. traer al array del req.user
         .catch(err => console.log(err))
 
@@ -147,7 +147,7 @@ router.get('/edit/:id', ensureLogin.ensureLoggedIn(), (req, res, next) => {
     .then(race => {
       race.lat = race.startPoint.coordinates[0]
       race.lng = race.startPoint.coordinates[1]
-
+      // res.json(race)
       res.render('races/edit-race', race)
     })
 
