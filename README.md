@@ -16,13 +16,13 @@ RUNeando
 
  This project is built using NodeJS, Express, MongoDB, PassportJS, Handlebars, HTML, CSS, Bootstrap and some API's like Google Maps,  and Cloudinary. It also includes social-login with Google.
  
- 
-
-<p align="center"><img src="https://res.cloudinary.com/dl5ssmoat/image/upload/v1585678783/Screen_Shot_2020-03-31_at_1.17.49_PM_jfxksa.png" width="900"/></p>
-<p align="center"><img src="https://res.cloudinary.com/dl5ssmoat/image/upload/v1585678780/Screen_Shot_2020-03-31_at_1.19.19_PM_uxpl8l.png" width="900"/></p>  
-  
-### Functionalities:
+ ### Functionalities:
 
 - Create, Edit and Delete your own races using Google maps to customize the route.
 - Access to other users' races and routes details.
-- Social Login with Google Auth.
+- Social Login with Google Auth. 
+
+
+<p align="center"><img src="https://res.cloudinary.com/dl5ssmoat/image/upload/v1585678783/Screen_Shot_2020-03-31_at_1.17.49_PM_jfxksa.png" width="600"/></p>
+<p align="center"><img src="https://res.cloudinary.com/dl5ssmoat/image/upload/v1585678780/Screen_Shot_2020-03-31_at_1.19.19_PM_uxpl8l.png" width="600"/></p>  
+  
